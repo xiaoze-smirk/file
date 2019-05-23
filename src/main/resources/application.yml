@@ -1,0 +1,10 @@
+server:
+  port: 9090
+  servlet:
+    context-path: /file
+
+spring:
+  thymeleaf:
+    encoding: UTF-8
+    cache: false
+    mode: LEGACYHTML5
