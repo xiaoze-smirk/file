@@ -6,6 +6,8 @@ import com.xiaoze.file.model.PhotoWord;
 import com.xiaoze.file.model.Word;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
+import org.springframework.util.ClassUtils;
+
 import java.util.*;
 
 /**
@@ -33,12 +35,12 @@ public class ModelUtil {
         goodsWord.setStandardAmount(9990);
         goodsWord.setUnStandardAmount(10);
 
-        String resourcePath = CommonUtil.getResourcePath();
+        String resourcePath = "E:\\Test\\photo\\";
 
         //三张图片地址
-        String boyPath = StringUtils.join(resourcePath, "static\\photo\\boy.jpg");
-        String girlPath = StringUtils.join(resourcePath, "static\\photo\\girl.jpg");
-        String cartoonPath = StringUtils.join(resourcePath, "static\\photo\\cartoon.jpg");
+        String boyPath = StringUtils.join(resourcePath, "boy.jpg");
+        String girlPath = StringUtils.join(resourcePath, "girl.jpg");
+        String cartoonPath = StringUtils.join(resourcePath, "cartoon.jpg");
 
         List<GoodsWord> goodsWordList = new ArrayList<>();
         List<PhotoWord> photoWordList = new ArrayList<>();
@@ -75,13 +77,13 @@ public class ModelUtil {
         map.put("photoWordList", photoWordList);
         map.put("ironTytle", photoWord3);
 
-        String templatePath = StringUtils.join(resourcePath, "freemarker");
+        String templatePath = "\\E:\\Test\\freemarker";
 
         String templateName = "word.ftl";
 
         String fileName = "word.doc";
 
-        String fileTempPath = StringUtils.join(resourcePath, "static\\word");
+        String fileTempPath = "\\E:\\Test\\wordTemp";
 
         word.setMap(map);
         word.setWordSuffix(Constant.WORD_DOC);

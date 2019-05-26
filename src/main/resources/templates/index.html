@@ -15,8 +15,14 @@
 
         //下载word
         $("#word").click(function () {
-            var href = [[@{/word/download}]];
-            window.open(href);
+
+            var url = [[@{/word/download}]];
+            var link = document.createElement('a')
+            link.href = url
+            document.body.appendChild(link)
+            link.click()
+            link.remove()
+
         })
 
     });

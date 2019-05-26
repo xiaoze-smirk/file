@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 /**
@@ -51,7 +52,7 @@ public class WordUtil {
         OutputStreamWriter outputStreamWriter = null;
         try {
             fileOutputStream = new FileOutputStream(outFile);
-            outputStreamWriter = new OutputStreamWriter(fileOutputStream);
+            outputStreamWriter = new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8);
             out = new BufferedWriter(outputStreamWriter);
             if (t != null){
                 t.process(dataMap, out);

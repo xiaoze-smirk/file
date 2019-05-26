@@ -140,19 +140,4 @@ public class CommonUtil {
 
     }
 
-    /**
-     * 获取src/main/resources下文件的绝对路径(classes下)
-     * @return String
-     */
-    public static String getResourcePath(){
-        String path = "";
-        try {
-            path = ResourceUtils.getURL("classpath:").getPath();
-            return path;
-        } catch (FileNotFoundException e) {
-            log.error(e.getMessage(),e);
-        }
-        return path;
-    }
-
 }
