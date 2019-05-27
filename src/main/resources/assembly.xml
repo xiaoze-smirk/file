@@ -42,7 +42,7 @@
         <!-- jar -->
         <fileSet>
             <directory>${project.build.directory}</directory>
-            <outputDirectory>/</outputDirectory>
+            <outputDirectory>${project.build.directory}/</outputDirectory>
             <includes>
                 <include>*.jar</include>
             </includes>
@@ -50,7 +50,7 @@
 
         <fileSet>
             <directory>src/main/resources</directory>
-            <outputDirectory>/</outputDirectory>
+            <outputDirectory>${project.build.directory}/</outputDirectory>
         </fileSet>
 
 <!--        <fileSet>-->
