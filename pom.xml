@@ -89,9 +89,24 @@
 <!--            </resource>-->
         </resources>
         <plugins>
+            <!-- 大包 -->
+            <!-- <plugin> -->
+            <!-- <groupId>org.springframework.boot</groupId> -->
+            <!-- <artifactId>spring-boot-maven-plugin</artifactId> -->
+            <!-- </plugin> -->
+            <!-- 大包加小包 -->
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>com.xiaoze.file.FileApplication</mainClass>
+                            <classpathPrefix>lib/</classpathPrefix> //指定依赖的jar包相对于本程序jar的位置
+                        </manifest>
+                    </archive>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -105,6 +120,7 @@
                 <executions>
                     <execution>
                         <id>make-assembly</id>
+                        <!-- 绑定到package生命周期阶段上 -->
                         <phase>package</phase>
                         <goals>
                             <!-- 只运行一次 -->

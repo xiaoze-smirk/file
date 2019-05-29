@@ -8,16 +8,25 @@
     <includeBaseDirectory>true</includeBaseDirectory>
 
     <!-- 依赖包的输出路径 -->
-<!--    <dependencySets>-->
-<!--        <dependencySet>-->
-<!--        	&lt;!&ndash; 当前项目构件是否包含在这个依赖集合里 &ndash;&gt;-->
-<!--        	<useProjectArtifact>false</useProjectArtifact>-->
-<!--            <outputDirectory>/lib</outputDirectory>-->
-<!--        </dependencySet>-->
-<!--    </dependencySets>-->
+    <dependencySets>
+        <dependencySet>
+        	<!-- 当前项目构件是否包含在这个依赖集合里 -->
+        	<useProjectArtifact>false</useProjectArtifact>
+            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+        </dependencySet>
+    </dependencySets>
 
     <!-- 需要打包的文件 -->
     <fileSets>
+        <!-- bin -->
+        <fileSet>
+            <directory>bin</directory>
+            <outputDirectory>${project.build.directory}/bin</outputDirectory>
+            <filtered>true</filtered>
+            <includes>
+                <include>*.bat</include>
+            </includes>
+        </fileSet>
         <!-- bin -->
 <!--        <fileSet>-->
 <!--            <directory>bin</directory>-->
@@ -39,7 +48,7 @@
             ${project.packaging} 打包类型，缺省为jar
             ${project.xxx} 当前pom文件的任意节点的内容
          -->
-        <!-- jar -->
+        <!-- 把项目自己编译出来的jar文件，打包进zip文件的根目录 -->
         <fileSet>
             <directory>${project.build.directory}</directory>
             <outputDirectory>${project.build.directory}/</outputDirectory>
@@ -50,6 +59,11 @@
 
         <fileSet>
             <directory>src/main/resources</directory>
+            <outputDirectory>${project.build.directory}/</outputDirectory>
+        </fileSet>
+
+        <fileSet>
+            <directory>src/main/java</directory>
             <outputDirectory>${project.build.directory}/</outputDirectory>
         </fileSet>
 
